@@ -1,5 +1,6 @@
-package com.cbc.cbc.pojo;
+package com.cbc.cbc.communities.pojo;
 
+import com.cbc.cbc.userRegistration.pojo.User;
 import lombok.Data;
 
 import javax.persistence.*;
