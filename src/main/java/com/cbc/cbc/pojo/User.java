@@ -17,4 +17,5 @@ public class User {
     private String name;
     @Transient
     private List<Community> communities;
+    //nothing
 }
