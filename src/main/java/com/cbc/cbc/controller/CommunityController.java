@@ -16,9 +16,9 @@ public class CommunityController {
     private CommunityService communityService;
 
     @PostMapping("/add")
-    public String addCommunity(@RequestBody Community community) {
+    public Community addCommunity(@RequestBody Community community) {
         communityService.saveCommunity(community);
-        return String.format("Added new community. [community = %s]", community.toString());
+        return community;
     }
 
     @GetMapping("/getAll")
