@@ -6,13 +6,16 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "communities")
+@Table(name = "rides")
 @Getter
 @Setter
-public class Community {
+public class Ride {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name;
+    private String source;
+    private String destination;
+    private int driverId;
+    private int communityId;
 }
