@@ -1,8 +1,8 @@
-package com.cbc.cbc.config;
+package com.cbc.cbc.communities.config;
 
-import com.cbc.cbc.controller.CommunityController;
-import com.cbc.cbc.service.CommunityService;
-import com.cbc.cbc.service.CommunityServiceImpl;
+import com.cbc.cbc.communities.controller.CommunityController;
+import com.cbc.cbc.communities.service.CommunityService;
+import com.cbc.cbc.communities.service.CommunityServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

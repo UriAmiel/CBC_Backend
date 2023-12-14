@@ -1,4 +1,4 @@
-package com.cbc.cbc.controller;
+package com.cbc.cbc.rides.controller;
 
 import org.springframework.web.bind.annotation.*;
 

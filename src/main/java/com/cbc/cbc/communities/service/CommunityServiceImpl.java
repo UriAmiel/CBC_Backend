@@ -1,7 +1,7 @@
-package com.cbc.cbc.service;
+package com.cbc.cbc.communities.service;
 
-import com.cbc.cbc.pojo.Community;
-import com.cbc.cbc.repository.CommunityRepository;
+import com.cbc.cbc.communities.pojo.Community;
+import com.cbc.cbc.communities.repository.CommunityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

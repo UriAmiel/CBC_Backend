@@ -1,6 +1,6 @@
-package com.cbc.cbc.config;
+package com.cbc.cbc.rides.config;
 
-import com.cbc.cbc.controller.RideController;
+import com.cbc.cbc.rides.controller.RideController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
