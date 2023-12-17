@@ -1,4 +1,4 @@
-package com.cbc.cbc.pojo;
+package com.cbc.cbc.rides.pojo;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,16 +1,16 @@
-package com.cbc.cbc.service;
+package com.cbc.cbc.communities.service;
 
-import com.cbc.cbc.pojo.Community;
-import com.cbc.cbc.repository.CommunityRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.cbc.cbc.communities.pojo.Community;
+import com.cbc.cbc.communities.repository.CommunityRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class CommunityServiceImpl implements CommunityService {
 
-    @Autowired
     private CommunityRepository communityRepository;
 
     @Override
