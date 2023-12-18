@@ -1,6 +1,7 @@
 package com.cbc.cbc.communities.config;
 
 import com.cbc.cbc.communities.controller.CommunityController;
+import com.cbc.cbc.communities.model.mapper.CommunityMapper;
 import com.cbc.cbc.communities.repository.CommunityRepository;
 import com.cbc.cbc.communities.service.CommunityService;
 import com.cbc.cbc.communities.service.CommunityServiceImpl;
@@ -16,7 +17,7 @@ public class CommunityConfiguration {
     }
 
     @Bean
-    public CommunityController communityController(CommunityService communityService) {
-        return new CommunityController(communityService);
+    public CommunityController communityController(CommunityService communityService, CommunityMapper addCommunityRequestMapper) {
+        return new CommunityController(communityService, addCommunityRequestMapper);
     }
 }

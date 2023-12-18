@@ -1,5 +1,8 @@
 package com.cbc.cbc.communities.controller;
 
+import com.cbc.cbc.communities.model.AddCommunityRequest;
+import com.cbc.cbc.communities.model.mapper.AddCommunityResponse;
+import com.cbc.cbc.communities.model.mapper.CommunityMapper;
 import com.cbc.cbc.communities.pojo.Community;
 import com.cbc.cbc.communities.service.CommunityService;
 import lombok.AllArgsConstructor;
@@ -14,11 +17,13 @@ import java.util.List;
 public class CommunityController {
 
     private CommunityService communityService;
+    private CommunityMapper communityMapper;
 
     @PostMapping("/add")
-    public Community addCommunity(@RequestBody Community community) {
-        communityService.saveCommunity(community);
-        return community;
+    public AddCommunityResponse addCommunity(@RequestBody AddCommunityRequest addCommunityRequest) {
+        Community community = communityMapper.toCommunity(addCommunityRequest);
+        Community savedCommunity = communityService.saveCommunity(community);
+        return communityMapper.toCommunityResponse(savedCommunity);
     }
 
     @GetMapping("/getAll")
