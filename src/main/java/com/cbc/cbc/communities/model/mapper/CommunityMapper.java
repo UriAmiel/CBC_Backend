@@ -8,5 +8,6 @@ import org.mapstruct.Mapper;
 public interface CommunityMapper {
 
     Community toCommunity(AddCommunityRequest addCommunityRequest);
+
     AddCommunityResponse toCommunityResponse(Community community);
 }
