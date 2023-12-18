@@ -7,6 +7,7 @@ import com.cbc.cbc.rides.pojo.CommunityRideResponse;
 import com.cbc.cbc.rides.pojo.Ride;
 import com.cbc.cbc.rides.repository.RideRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
