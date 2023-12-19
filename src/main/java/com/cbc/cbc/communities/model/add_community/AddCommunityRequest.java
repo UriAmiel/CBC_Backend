@@ -1,4 +1,4 @@
-package com.cbc.cbc.communities.model;
+package com.cbc.cbc.communities.model.add_community;
 
 import lombok.Getter;
 import lombok.Setter;

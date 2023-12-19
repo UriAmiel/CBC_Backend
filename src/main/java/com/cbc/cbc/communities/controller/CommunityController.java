@@ -1,8 +1,8 @@
 package com.cbc.cbc.communities.controller;
 
-import com.cbc.cbc.communities.model.AddCommunityRequest;
-import com.cbc.cbc.communities.model.mapper.AddCommunityResponse;
-import com.cbc.cbc.communities.model.mapper.CommunityMapper;
+import com.cbc.cbc.communities.model.add_community.AddCommunityRequest;
+import com.cbc.cbc.communities.model.add_community.AddCommunityResponse;
+import com.cbc.cbc.communities.model.add_community.mapper.CommunityMapper;
 import com.cbc.cbc.communities.pojo.Community;
 import com.cbc.cbc.communities.service.CommunityService;
 import lombok.AllArgsConstructor;

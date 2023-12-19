@@ -1,7 +1,7 @@
 package com.cbc.cbc.communities.config;
 
 import com.cbc.cbc.communities.controller.CommunityController;
-import com.cbc.cbc.communities.model.mapper.CommunityMapper;
+import com.cbc.cbc.communities.model.add_community.mapper.CommunityMapper;
 import com.cbc.cbc.communities.repository.CommunityRepository;
 import com.cbc.cbc.communities.service.CommunityService;
 import com.cbc.cbc.communities.service.CommunityServiceImpl;

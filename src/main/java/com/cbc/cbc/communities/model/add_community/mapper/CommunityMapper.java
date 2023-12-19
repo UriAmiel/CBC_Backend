@@ -1,6 +1,7 @@
-package com.cbc.cbc.communities.model.mapper;
+package com.cbc.cbc.communities.model.add_community.mapper;
 
-import com.cbc.cbc.communities.model.AddCommunityRequest;
+import com.cbc.cbc.communities.model.add_community.AddCommunityRequest;
+import com.cbc.cbc.communities.model.add_community.AddCommunityResponse;
 import com.cbc.cbc.communities.pojo.Community;
 import org.mapstruct.Mapper;
 

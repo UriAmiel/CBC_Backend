@@ -1,4 +1,4 @@
-package com.cbc.cbc.communities.model.mapper;
+package com.cbc.cbc.communities.model.add_community;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,4 +8,5 @@ import lombok.Setter;
 public class AddCommunityResponse {
 
     private int id;
+    private String name;
 }
