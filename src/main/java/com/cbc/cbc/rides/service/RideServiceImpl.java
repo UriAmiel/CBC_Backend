@@ -7,12 +7,11 @@ import com.cbc.cbc.rides.pojo.CommunityRideResponse;
 import com.cbc.cbc.rides.pojo.Ride;
 import com.cbc.cbc.rides.repository.RideRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 @AllArgsConstructor
-public class RideServiceImpl implements RideService{
+public class RideServiceImpl implements RideService {
 
     private RideRepository rideRepository;
 
@@ -28,7 +27,7 @@ public class RideServiceImpl implements RideService{
         List<CommunityRideResponse> communityRideResponses = rideRepository.findAll()
                 .stream()
                 .filter(ride -> ride.getCommunityId() == communityId)
-                .map(ride -> new CommunityRideResponse(ride.getSource(), ride.getDestination()))
+                .map(ride -> new CommunityRideResponse(ride.getId(), ride.getSource(), ride.getDestination()))
                 .toList();
         return new GetRidesOfCommunityResponse(communityRideResponses);
     }

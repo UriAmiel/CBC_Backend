@@ -7,6 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class CommunityRideResponse {
 
+    int id;
     String source;
     String destination;
 }
