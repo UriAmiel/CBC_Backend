@@ -11,6 +11,6 @@ import java.util.List;
 @Getter
 public class GetRidesOfCommunityResponse {
 
-    @JsonProperty("community-rides")
+    @JsonProperty("community_rides")
     List<CommunityRideResponse> communityRideResponses;
 }
