@@ -1,7 +1,7 @@
 package com.cbc.cbc.communities.model.add_community.mapper;
 
 import com.cbc.cbc.communities.model.add_community.AddCommunityRequest;
-import com.cbc.cbc.communities.model.add_community.AddCommunityResponse;
+import com.cbc.cbc.communities.model.add_community.CommunityResponse;
 import com.cbc.cbc.communities.pojo.Community;
 import org.mapstruct.Mapper;
 
@@ -10,5 +10,5 @@ public interface CommunityMapper {
 
     Community toCommunity(AddCommunityRequest addCommunityRequest);
 
-    AddCommunityResponse toCommunityResponse(Community community);
+    CommunityResponse toCommunityResponse(Community community);
 }
