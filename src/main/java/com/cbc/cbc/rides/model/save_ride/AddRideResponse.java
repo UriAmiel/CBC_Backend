@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SaveRideResponse {
+public class AddRideResponse {
 
-    int rideId;
+    int id;
 }

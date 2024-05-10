@@ -1,7 +1,6 @@
 package com.cbc.cbc.rides.pojo;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 

@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SaveRideRequest {
+public class AddRideRequest {
 
     private String source;
     private String destination;
