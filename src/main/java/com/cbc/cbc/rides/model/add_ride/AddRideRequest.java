@@ -1,11 +1,13 @@
-package com.cbc.cbc.rides.model.save_ride;
+package com.cbc.cbc.rides.model.add_ride;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class SaveRideRequest {
+@Builder
+public class AddRideRequest {
 
     private String source;
     private String destination;

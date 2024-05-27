@@ -1,8 +1,6 @@
 package com.cbc.cbc.rides.service;
 
 import com.cbc.cbc.rides.model.get_rides.GetRidesOfCommunityResponse;
-import com.cbc.cbc.rides.model.save_ride.SaveRideRequest;
-import com.cbc.cbc.rides.model.save_ride.SaveRideResponse;
 import com.cbc.cbc.rides.pojo.CommunityRideResponse;
 import com.cbc.cbc.rides.pojo.Ride;
 import com.cbc.cbc.rides.repository.RideRepository;
@@ -16,10 +14,8 @@ public class RideServiceImpl implements RideService {
     private RideRepository rideRepository;
 
     @Override
-    public SaveRideResponse saveRide(SaveRideRequest saveRideRequest) {
-        Ride ride = new Ride();
-        Ride save = rideRepository.save(ride);
-        return null;
+    public Ride addRide(Ride rideToAdd) {
+        return rideRepository.save(rideToAdd);
     }
 
     @Override
