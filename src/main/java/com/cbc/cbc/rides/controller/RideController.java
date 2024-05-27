@@ -1,13 +1,10 @@
 package com.cbc.cbc.rides.controller;
 
-import com.cbc.cbc.rides.model.add_ride.AddRideRequest;
-import com.cbc.cbc.rides.model.add_ride.AddRideResponse;
-import com.cbc.cbc.rides.model.get_rides.CommunityRideResponse;
-import com.cbc.cbc.rides.model.mapper.RideMapper;
-import com.cbc.cbc.rides.pojo.Ride;
+import com.cbc.cbc.rides.model.dto.AddRideRequest;
+import com.cbc.cbc.rides.model.dto.CommunityRideResponse;
+import com.cbc.cbc.rides.model.dto.RideDto;
 import com.cbc.cbc.rides.service.RideService;
 import lombok.AllArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 public class RideController {
 
     private RideService rideService;
-    private RideMapper rideMapper;
 
     @GetMapping("/get/{communityId}")
     public CommunityRideResponse getRidesOfCommunity(@PathVariable int communityId) {
@@ -25,10 +21,7 @@ public class RideController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<AddRideResponse> addRideToCommunity(@RequestBody AddRideRequest addRideRequest) {
-        Ride rideToAdd = rideMapper.toRide(addRideRequest);
-        Ride savedRide = rideService.addRide(rideToAdd);
-        AddRideResponse rideResponse = rideMapper.toAddRideResponse(savedRide);
-        return ResponseEntity.ok(rideResponse);
+    public RideDto addRideToCommunity(@RequestBody AddRideRequest rideToAdd) {
+        return rideService.addRide(rideToAdd);
     }
 }

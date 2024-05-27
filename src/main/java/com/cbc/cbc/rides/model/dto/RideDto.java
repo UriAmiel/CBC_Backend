@@ -1,16 +1,16 @@
-package com.cbc.cbc.rides.model.add_ride;
+package com.cbc.cbc.rides.model.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
-@Setter
+@AllArgsConstructor
 @Builder
-public class AddRideRequest {
+public class RideDto {
 
+    private int id;
     private String source;
     private String destination;
-    private int driverId;
     private int communityId;
 }

@@ -1,11 +1,12 @@
 package com.cbc.cbc.rides.service;
 
-import com.cbc.cbc.rides.model.get_rides.CommunityRideResponse;
-import com.cbc.cbc.rides.pojo.Ride;
+import com.cbc.cbc.rides.model.dto.AddRideRequest;
+import com.cbc.cbc.rides.model.dto.CommunityRideResponse;
+import com.cbc.cbc.rides.model.dto.RideDto;
 
 public interface RideService {
 
-    Ride addRide(Ride rideToAdd);
+    RideDto addRide(AddRideRequest rideToAdd);
 
     CommunityRideResponse getRidesOfCommunity(int communityId);
 }

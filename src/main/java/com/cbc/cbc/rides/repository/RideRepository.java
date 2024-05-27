@@ -1,6 +1,6 @@
 package com.cbc.cbc.rides.repository;
 
-import com.cbc.cbc.rides.pojo.Ride;
+import com.cbc.cbc.rides.record.Ride;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
