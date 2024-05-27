@@ -1,8 +1,9 @@
 package com.cbc.cbc.rides.service;
 
-import com.cbc.cbc.rides.model.get_rides.GetRidesOfCommunityResponse;
-import com.cbc.cbc.rides.pojo.CommunityRideResponse;
+import com.cbc.cbc.rides.model.get_rides.CommunityRideResponse;
+import com.cbc.cbc.rides.model.mapper.RideMapper;
 import com.cbc.cbc.rides.pojo.Ride;
+import com.cbc.cbc.rides.pojo.RideDto;
 import com.cbc.cbc.rides.repository.RideRepository;
 import lombok.AllArgsConstructor;
 
@@ -12,6 +13,7 @@ import java.util.List;
 public class RideServiceImpl implements RideService {
 
     private RideRepository rideRepository;
+    private RideMapper rideMapper;
 
     @Override
     public Ride addRide(Ride rideToAdd) {
@@ -19,12 +21,12 @@ public class RideServiceImpl implements RideService {
     }
 
     @Override
-    public GetRidesOfCommunityResponse getRidesOfCommunity(int communityId) {
-        List<CommunityRideResponse> communityRideResponses = rideRepository.findAll()
+    public CommunityRideResponse getRidesOfCommunity(int communityId) {
+        List<RideDto> communityRides = rideRepository.findAll()
                 .stream()
                 .filter(ride -> ride.getCommunityId() == communityId)
-                .map(ride -> new CommunityRideResponse(ride.getId(), ride.getSource(), ride.getDestination()))
+                .map(ride -> rideMapper.toRideDto(ride))
                 .toList();
-        return new GetRidesOfCommunityResponse(communityRideResponses);
+        return new CommunityRideResponse(communityRides);
     }
 }

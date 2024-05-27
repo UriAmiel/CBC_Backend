@@ -12,8 +12,8 @@ import org.springframework.context.annotation.Configuration;
 public class RideConfiguration {
 
     @Bean
-    public RideService rideService(RideRepository rideRepository) {
-        return new RideServiceImpl(rideRepository);
+    public RideService rideService(RideRepository rideRepository, RideMapper rideMapper) {
+        return new RideServiceImpl(rideRepository, rideMapper);
     }
 
     @Bean
