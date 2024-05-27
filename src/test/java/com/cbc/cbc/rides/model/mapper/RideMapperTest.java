@@ -1,7 +1,7 @@
 package com.cbc.cbc.rides.model.mapper;
 
 import com.cbc.cbc.rides.model.dto.AddRideRequest;
-import com.cbc.cbc.rides.model.dto.RideDto;
+import com.cbc.cbc.rides.model.dto.RideDTO;
 import com.cbc.cbc.rides.model.dto.mapper.RideMapper;
 import com.cbc.cbc.rides.model.dto.mapper.RideMapperImpl;
 import com.cbc.cbc.rides.record.Ride;
@@ -48,7 +48,7 @@ class RideMapperTest {
                 .id(RIDE_ID)
                 .build();
 
-        RideDto rideDto = rideMapper.toRideDto(ride);
+        RideDTO rideDto = rideMapper.toRideDto(ride);
 
         assertEquals(RIDE_ID, rideDto.getId());
     }

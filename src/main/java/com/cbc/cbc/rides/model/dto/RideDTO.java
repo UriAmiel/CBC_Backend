@@ -7,7 +7,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 @Builder
-public class RideDto {
+public class RideDTO {
 
     private int id;
     private String source;

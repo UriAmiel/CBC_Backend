@@ -1,7 +1,7 @@
 package com.cbc.cbc.rides.service;
 
 import com.cbc.cbc.rides.model.dto.CommunityRideResponse;
-import com.cbc.cbc.rides.model.dto.RideDto;
+import com.cbc.cbc.rides.model.dto.RideDTO;
 import com.cbc.cbc.rides.model.dto.mapper.RideMapper;
 import com.cbc.cbc.rides.record.Ride;
 import com.cbc.cbc.rides.repository.RideRepository;
@@ -26,7 +26,7 @@ class RideServiceImplTest {
         RideRepository repository = Mockito.mock(RideRepository.class);
         RideMapper mapper = Mockito.mock(RideMapper.class);
         Mockito.when(repository.findAll()).thenReturn(RIDES_LIST);
-        Mockito.when(mapper.toRideDto(RIDE1)).thenReturn(RideDto.builder().communityId(COMMUNITY_1_ID).build());
+        Mockito.when(mapper.toRideDto(RIDE1)).thenReturn(RideDTO.builder().communityId(COMMUNITY_1_ID).build());
 
         rideService = new RideServiceImpl(repository, mapper);
     }
@@ -34,7 +34,7 @@ class RideServiceImplTest {
     @Test
     public void testGetRidesOfCommunity_communityExists_expectOneCommunity() {
         CommunityRideResponse ridesOfCommunity = rideService.getRidesOfCommunity(COMMUNITY_1_ID);
-        List<RideDto> communityRides = ridesOfCommunity.getCommunityRides();
+        List<RideDTO> communityRides = ridesOfCommunity.getCommunityRides();
 
         Assertions.assertEquals(1, communityRides.size());
         Assertions.assertNotNull(communityRides.get(0));
@@ -44,7 +44,7 @@ class RideServiceImplTest {
     @Test
     public void testGetRidesOfCommunity_communityDoesNotExists_expectNoCommunity() {
         CommunityRideResponse ridesOfCommunity = rideService.getRidesOfCommunity(1024);
-        List<RideDto> communityRides = ridesOfCommunity.getCommunityRides();
+        List<RideDTO> communityRides = ridesOfCommunity.getCommunityRides();
 
         Assertions.assertEquals(0, communityRides.size());
     }
