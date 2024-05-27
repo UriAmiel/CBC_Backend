@@ -1,12 +1,13 @@
 package com.cbc.cbc.communities.service;
 
-import com.cbc.cbc.communities.pojo.Community;
+import com.cbc.cbc.communities.model.dto.AddCommunityRequest;
+import com.cbc.cbc.communities.model.dto.CommunityDTO;
 
 import java.util.List;
 
 public interface CommunityService {
-    Community saveCommunity(Community community);
+    CommunityDTO addCommunity(AddCommunityRequest communityToAdd);
 
-    List<Community> getAllCommunities();
+    List<CommunityDTO> getAllCommunities();
 
 }

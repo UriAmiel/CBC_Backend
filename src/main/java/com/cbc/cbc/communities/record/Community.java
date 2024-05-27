@@ -1,4 +1,4 @@
-package com.cbc.cbc.communities.pojo;
+package com.cbc.cbc.communities.record;
 
 import lombok.*;
 

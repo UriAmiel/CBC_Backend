@@ -1,12 +1,10 @@
-package com.cbc.cbc.rides.controller;
+package com.cbc.cbc.rides.service;
 
 import com.cbc.cbc.rides.model.dto.CommunityRideResponse;
+import com.cbc.cbc.rides.model.dto.RideDto;
 import com.cbc.cbc.rides.model.dto.mapper.RideMapper;
 import com.cbc.cbc.rides.record.Ride;
-import com.cbc.cbc.rides.model.dto.RideDto;
 import com.cbc.cbc.rides.repository.RideRepository;
-import com.cbc.cbc.rides.service.RideService;
-import com.cbc.cbc.rides.service.RideServiceImpl;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,11 +13,7 @@ import org.mockito.Mockito;
 
 import java.util.List;
 
-class RideControllerTest {
-
-
-    private static final RideMapper MAPPER = Mockito.mock(RideMapper.class);
-    private static final RideRepository REPOSITORY = Mockito.mock(RideRepository.class);
+class RideServiceImplTest {
     private static final int COMMUNITY_1_ID = 1;
     private static final int COMMUNITY_2_ID = 2;
     private static final Ride RIDE1 = getRide(COMMUNITY_1_ID);
@@ -29,9 +23,12 @@ class RideControllerTest {
 
     @BeforeEach
     public void setUp() {
-        Mockito.when(REPOSITORY.findAll()).thenReturn(RIDES_LIST);
-        Mockito.when(MAPPER.toRideDto(RIDE1)).thenReturn(RideDto.builder().communityId(COMMUNITY_1_ID).build());
-        rideService = new RideServiceImpl(REPOSITORY, MAPPER);
+        RideRepository repository = Mockito.mock(RideRepository.class);
+        RideMapper mapper = Mockito.mock(RideMapper.class);
+        Mockito.when(repository.findAll()).thenReturn(RIDES_LIST);
+        Mockito.when(mapper.toRideDto(RIDE1)).thenReturn(RideDto.builder().communityId(COMMUNITY_1_ID).build());
+
+        rideService = new RideServiceImpl(repository, mapper);
     }
 
     @Test
@@ -46,7 +43,7 @@ class RideControllerTest {
 
     @Test
     public void testGetRidesOfCommunity_communityDoesNotExists_expectNoCommunity() {
-        CommunityRideResponse ridesOfCommunity = rideService.getRidesOfCommunity(3);
+        CommunityRideResponse ridesOfCommunity = rideService.getRidesOfCommunity(1024);
         List<RideDto> communityRides = ridesOfCommunity.getCommunityRides();
 
         Assertions.assertEquals(0, communityRides.size());
@@ -57,4 +54,5 @@ class RideControllerTest {
                 .communityId(communityId)
                 .build();
     }
+
 }
