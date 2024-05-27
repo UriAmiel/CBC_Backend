@@ -1,7 +1,7 @@
 package com.cbc.cbc.rides.model.dto.mapper;
 
 import com.cbc.cbc.rides.model.dto.AddRideRequest;
-import com.cbc.cbc.rides.model.dto.RideDto;
+import com.cbc.cbc.rides.model.dto.RideDTO;
 import com.cbc.cbc.rides.record.Ride;
 import org.mapstruct.Mapper;
 
@@ -9,5 +9,5 @@ import org.mapstruct.Mapper;
 public interface RideMapper {
     Ride toRide(AddRideRequest addRideRequest);
 
-    RideDto toRideDto(Ride ride);
+    RideDTO toRideDto(Ride ride);
 }

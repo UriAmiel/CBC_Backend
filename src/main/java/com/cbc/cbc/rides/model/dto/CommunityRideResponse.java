@@ -11,5 +11,5 @@ import java.util.List;
 public class CommunityRideResponse {
 
     @JsonProperty("community_rides")
-    List<RideDto> communityRides;
+    List<RideDTO> communityRides;
 }

@@ -1,17 +1,19 @@
-package com.cbc.cbc.communities.model.add_community;
+package com.cbc.cbc.communities.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 @AllArgsConstructor
-public class AddCommunityRequest {
+@Builder
+public class CommunityDTO {
 
+    @JsonProperty("id")
+    private int id;
     @JsonProperty("name")
     private String name;
-    @JsonProperty("description")
-    private String description;
 }
