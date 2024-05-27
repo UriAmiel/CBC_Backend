@@ -1,9 +1,9 @@
 package com.cbc.cbc.rides.controller;
 
-import com.cbc.cbc.rides.model.get_rides.CommunityRideResponse;
-import com.cbc.cbc.rides.model.mapper.RideMapper;
-import com.cbc.cbc.rides.pojo.Ride;
-import com.cbc.cbc.rides.pojo.RideDto;
+import com.cbc.cbc.rides.model.dto.CommunityRideResponse;
+import com.cbc.cbc.rides.model.dto.mapper.RideMapper;
+import com.cbc.cbc.rides.record.Ride;
+import com.cbc.cbc.rides.model.dto.RideDto;
 import com.cbc.cbc.rides.repository.RideRepository;
 import com.cbc.cbc.rides.service.RideService;
 import com.cbc.cbc.rides.service.RideServiceImpl;

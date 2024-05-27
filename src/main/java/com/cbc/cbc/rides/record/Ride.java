@@ -1,4 +1,4 @@
-package com.cbc.cbc.rides.pojo;
+package com.cbc.cbc.rides.record;
 
 import lombok.*;
 

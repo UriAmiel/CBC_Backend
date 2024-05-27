@@ -1,9 +1,10 @@
 package com.cbc.cbc.rides.service;
 
-import com.cbc.cbc.rides.model.get_rides.CommunityRideResponse;
-import com.cbc.cbc.rides.model.mapper.RideMapper;
-import com.cbc.cbc.rides.pojo.Ride;
-import com.cbc.cbc.rides.pojo.RideDto;
+import com.cbc.cbc.rides.model.dto.AddRideRequest;
+import com.cbc.cbc.rides.model.dto.CommunityRideResponse;
+import com.cbc.cbc.rides.model.dto.RideDto;
+import com.cbc.cbc.rides.model.dto.mapper.RideMapper;
+import com.cbc.cbc.rides.record.Ride;
 import com.cbc.cbc.rides.repository.RideRepository;
 import lombok.AllArgsConstructor;
 
@@ -16,8 +17,9 @@ public class RideServiceImpl implements RideService {
     private RideMapper rideMapper;
 
     @Override
-    public Ride addRide(Ride rideToAdd) {
-        return rideRepository.save(rideToAdd);
+    public RideDto addRide(AddRideRequest rideToAdd) {
+        Ride addedRide = rideRepository.save(rideMapper.toRide(rideToAdd));
+        return rideMapper.toRideDto(addedRide);
     }
 
     @Override

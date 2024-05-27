@@ -1,6 +1,5 @@
-package com.cbc.cbc.rides.model.get_rides;
+package com.cbc.cbc.rides.model.dto;
 
-import com.cbc.cbc.rides.pojo.RideDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

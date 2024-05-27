@@ -1,7 +1,7 @@
 package com.cbc.cbc.rides.config;
 
 import com.cbc.cbc.rides.controller.RideController;
-import com.cbc.cbc.rides.model.mapper.RideMapper;
+import com.cbc.cbc.rides.model.dto.mapper.RideMapper;
 import com.cbc.cbc.rides.repository.RideRepository;
 import com.cbc.cbc.rides.service.RideService;
 import com.cbc.cbc.rides.service.RideServiceImpl;
@@ -17,7 +17,7 @@ public class RideConfiguration {
     }
 
     @Bean
-    public RideController rideController(RideService rideService, RideMapper rideMapper) {
-        return new RideController(rideService, rideMapper);
+    public RideController rideController(RideService rideService) {
+        return new RideController(rideService);
     }
 }

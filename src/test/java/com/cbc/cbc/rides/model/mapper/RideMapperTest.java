@@ -1,12 +1,14 @@
 package com.cbc.cbc.rides.model.mapper;
 
-import com.cbc.cbc.rides.model.add_ride.AddRideRequest;
-import com.cbc.cbc.rides.model.add_ride.AddRideResponse;
-import com.cbc.cbc.rides.pojo.Ride;
+import com.cbc.cbc.rides.model.dto.AddRideRequest;
+import com.cbc.cbc.rides.model.dto.RideDto;
+import com.cbc.cbc.rides.model.dto.mapper.RideMapper;
+import com.cbc.cbc.rides.model.dto.mapper.RideMapperImpl;
+import com.cbc.cbc.rides.record.Ride;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RideMapperTest {
 
@@ -41,13 +43,13 @@ class RideMapperTest {
     }
 
     @Test
-    public void testToAddRideResponse() {
+    public void testToRideDto() {
         Ride ride = Ride.builder()
                 .id(RIDE_ID)
                 .build();
 
-        AddRideResponse addRideResponse = rideMapper.toAddRideResponse(ride);
+        RideDto rideDto = rideMapper.toRideDto(ride);
 
-        assertEquals(RIDE_ID, addRideResponse.getId());
+        assertEquals(RIDE_ID, rideDto.getId());
     }
 }
