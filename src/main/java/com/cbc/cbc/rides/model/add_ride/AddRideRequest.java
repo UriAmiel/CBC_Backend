@@ -1,4 +1,4 @@
-package com.cbc.cbc.rides.model.save_ride;
+package com.cbc.cbc.rides.model.add_ride;
 
 import lombok.Builder;
 import lombok.Getter;

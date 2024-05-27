@@ -2,8 +2,8 @@ package com.cbc.cbc.rides.controller;
 
 import com.cbc.cbc.rides.model.get_rides.GetRidesOfCommunityResponse;
 import com.cbc.cbc.rides.model.mapper.RideMapper;
-import com.cbc.cbc.rides.model.save_ride.AddRideRequest;
-import com.cbc.cbc.rides.model.save_ride.AddRideResponse;
+import com.cbc.cbc.rides.model.add_ride.AddRideRequest;
+import com.cbc.cbc.rides.model.add_ride.AddRideResponse;
 import com.cbc.cbc.rides.pojo.Ride;
 import com.cbc.cbc.rides.service.RideService;
 import lombok.AllArgsConstructor;

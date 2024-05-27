@@ -1,7 +1,7 @@
 package com.cbc.cbc.rides.model.mapper;
 
-import com.cbc.cbc.rides.model.save_ride.AddRideRequest;
-import com.cbc.cbc.rides.model.save_ride.AddRideResponse;
+import com.cbc.cbc.rides.model.add_ride.AddRideRequest;
+import com.cbc.cbc.rides.model.add_ride.AddRideResponse;
 import com.cbc.cbc.rides.pojo.Ride;
 import org.mapstruct.Mapper;
 
