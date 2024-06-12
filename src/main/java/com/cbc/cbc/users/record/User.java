@@ -33,5 +33,10 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "community_id")
     )
+    @Builder.Default
     private Set<Community> communities = new HashSet<>();
+
+    public void addCommunity(Community community) {
+        communities.add(community);
+    }
 }

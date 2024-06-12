@@ -4,7 +4,7 @@ import com.cbc.cbc.users.mapper.UserMapper;
 import com.cbc.cbc.users.record.User;
 import com.cbc.cbc.users.registeration.model.dto.RegisterUserResponse;
 import com.cbc.cbc.users.registeration.model.dto.UserDTO;
-import com.cbc.cbc.users.registeration.repository.RegistrationRepository;
+import com.cbc.cbc.users.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -21,7 +21,7 @@ class RegistrationServiceImplTest {
 
     @BeforeEach
     public void setUp() {
-        RegistrationRepository repository = mock(RegistrationRepository.class);
+        UserRepository repository = mock(UserRepository.class);
         UserMapper mapper = mock(UserMapper.class);
         User user = User.builder()
                 .id(ID)

@@ -4,7 +4,7 @@ import com.cbc.cbc.users.mapper.UserMapper;
 import com.cbc.cbc.users.record.User;
 import com.cbc.cbc.users.registeration.model.dto.RegisterUserResponse;
 import com.cbc.cbc.users.registeration.model.dto.UserDTO;
-import com.cbc.cbc.users.registeration.repository.RegistrationRepository;
+import com.cbc.cbc.users.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class RegistrationServiceImpl implements RegistrationService {
 
-    private RegistrationRepository repository;
+    private UserRepository repository;
     private UserMapper userMapper;
 
     @Override
