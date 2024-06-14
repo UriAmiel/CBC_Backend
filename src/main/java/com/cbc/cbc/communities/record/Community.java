@@ -25,7 +25,12 @@ public class Community {
     private String description;
     @CreationTimestamp
     private LocalDateTime createdAt;
-
+    private Long creatorId;
     @ManyToMany(mappedBy = "communities")
+    @Builder.Default
     private Set<User> members = new HashSet<>();
+
+    public void addMember(User user) {
+        members.add(user);
+    }
 }
