@@ -9,6 +9,7 @@ import com.cbc.cbc.users.record.User;
 import com.cbc.cbc.users.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -20,12 +21,16 @@ public class CommunityServiceImpl implements CommunityService {
     private UserRepository userRepository;
     private CommunityMapper communityMapper;
 
+    @Transactional
     @Override
     public CommunityDTO addCommunity(AddCommunityRequest communityToAdd) {
         Community community = communityMapper.toCommunity(communityToAdd);
-        addCreatorToCommunity(community);
-        communityRepository.save(community);
-        return communityMapper.toCommunityDTO(community);
+        User communityCreator = getUser(community.getCreatorId());
+        if (communityCreator != null) {
+            addUserToCommunityAndSaveCommunity(community, communityCreator);
+            return communityMapper.toCommunityDTO(community);
+        }
+        return null;
     }
 
     @Override
@@ -36,18 +41,14 @@ public class CommunityServiceImpl implements CommunityService {
                 .toList();
     }
 
-    private void addCreatorToCommunity(Community community) {
-        if (community != null) {
-            addUserToCommunity(community, community.getCreatorId());
-        }
+    private User getUser(Long userId) {
+        return userRepository.findById(userId)
+                .orElse(null);
     }
 
-    private void addUserToCommunity(Community community, Long userId) {
-        User user = userRepository.findById(userId)
-                .orElse(null);
-        if (user != null) {
-            user.addCommunity(community);
-            community.addMember(user);
-        }
+    private void addUserToCommunityAndSaveCommunity(Community community, User user) {
+        user.addCommunity(community);
+        community.addMember(user);
+        communityRepository.save(community);
     }
 }
