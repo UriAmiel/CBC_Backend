@@ -22,7 +22,9 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public ResponseEntity<?> login(@RequestParam Long userId, @RequestParam String username, @RequestParam String password) {
+    public ResponseEntity<?> login(@RequestParam(required = false) Long userId,
+                                   @RequestParam String username,
+                                   @RequestParam String password) {
         UserDTO returnedUser = userService.login(userId, username, password);
         return returnedUser != null ?
                 ResponseEntity.status(HttpStatus.OK).body(returnedUser) :

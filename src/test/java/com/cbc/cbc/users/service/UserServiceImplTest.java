@@ -49,9 +49,20 @@ class UserServiceImplTest {
     }
 
     @Test
-    public void testLoginUser_happyFlow_expectUsernameAndId_noPassword() {
+    public void testLoginUser_happyFlow_withUserId_expectUsernameAndId_noPassword() {
         when(userRepository.findById(USER_ID)).thenReturn(Optional.ofNullable(getUser()));
         UserDTO loginUser = userService.login(USER_ID, USERNAME, PASSWORD);
+
+        assertEquals(USER_ID, loginUser.getId());
+        assertEquals(USERNAME, loginUser.getUsername());
+        assertNull(loginUser.getPassword());
+    }
+
+    @Test
+    public void testLoginUser_happyFlow_withoutUserId_expectUsernameAndId_noPassword() {
+        when(userRepository.findById(USER_ID)).thenReturn(null);
+        when(userRepository.findByUsername(USERNAME)).thenReturn(getUser());
+        UserDTO loginUser = userService.login(null, USERNAME, PASSWORD);
 
         assertEquals(USER_ID, loginUser.getId());
         assertEquals(USERNAME, loginUser.getUsername());
