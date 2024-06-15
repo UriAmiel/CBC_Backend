@@ -23,13 +23,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO login(Long userId, String username, String password) {
-        User user = repository.findById(userId).orElse(null);
+        User user;
+        if (userId != null) {
+            user = repository.findById(userId).orElse(null);
+        } else {
+            user = repository.findByUsername(username);
+        }
         if (user != null) {
             boolean passwordMatch = user.getPassword().equals(password);
             boolean usernameMatch = user.getUsername().equals(username);
             if (passwordMatch && usernameMatch) {
                 return UserDTO.builder()
-                        .id(userId)
+                        .id(user.getId())
                         .username(username)
                         .build();
             }
