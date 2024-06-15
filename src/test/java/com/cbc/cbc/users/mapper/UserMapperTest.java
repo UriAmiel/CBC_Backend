@@ -1,8 +1,8 @@
 package com.cbc.cbc.users.mapper;
 
 import com.cbc.cbc.users.record.User;
-import com.cbc.cbc.users.registeration.model.dto.RegisterUserResponse;
-import com.cbc.cbc.users.registeration.model.dto.UserDTO;
+import com.cbc.cbc.users.model.dto.RegisterUserResponse;
+import com.cbc.cbc.users.model.dto.UserDTO;
 import org.assertj.core.util.Sets;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
