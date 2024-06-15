@@ -19,7 +19,7 @@ import static org.mockito.Mockito.when;
 class UserServiceImplTest {
 
     private static final UserDTO userDTO = getUserDTO();
-    private static final Long ID = 1L;
+    private static final Long USER_ID = 1L;
     private static final String USERNAME = "username";
     private static final String PASSWORD = "password";
     private UserRepository userRepository;
@@ -44,23 +44,61 @@ class UserServiceImplTest {
 
         RegisterUserResponse registerUserResponse = userService.register(userDTO);
 
-        assertEquals(ID, registerUserResponse.getId());
+        assertEquals(USER_ID, registerUserResponse.getId());
         assertEquals(USERNAME, registerUserResponse.getUsername());
     }
 
     @Test
-    public void testLoginUser() {
-        when(userRepository.findById(ID)).thenReturn(Optional.ofNullable(getUser()));
-        UserDTO loginUser = userService.login(ID, USERNAME, PASSWORD);
+    public void testLoginUser_happyFlow_expectUsernameAndId_noPassword() {
+        when(userRepository.findById(USER_ID)).thenReturn(Optional.ofNullable(getUser()));
+        UserDTO loginUser = userService.login(USER_ID, USERNAME, PASSWORD);
 
-        assertEquals(ID, loginUser.getId());
+        assertEquals(USER_ID, loginUser.getId());
         assertEquals(USERNAME, loginUser.getUsername());
         assertNull(loginUser.getPassword());
     }
 
+    @Test
+    public void testLoginUser_unMatchUsername_expectNull() {
+        User user = getUser();
+        user.setUsername(user.getUsername() + "1024");
+        when(userRepository.findById(USER_ID)).thenReturn(Optional.of(user));
+        UserDTO loginUser = userService.login(USER_ID, USERNAME, PASSWORD);
+
+        assertNull(loginUser);
+    }
+
+    @Test
+    public void testLoginUser_unMatchPassword_expectNull() {
+        User user = getUser();
+        user.setPassword(user.getPassword() + "1024");
+        when(userRepository.findById(USER_ID)).thenReturn(Optional.of(user));
+        UserDTO loginUser = userService.login(USER_ID, USERNAME, PASSWORD);
+
+        assertNull(loginUser);
+    }
+
+    @Test
+    public void testLoginUser_nullUserId_expectNull() {
+        UserDTO loginUser = userService.login(null, USERNAME, PASSWORD);
+        assertNull(loginUser);
+    }
+
+    @Test
+    public void testLoginUser_nullUsername_expectNull() {
+        UserDTO loginUser = userService.login(USER_ID, null, PASSWORD);
+        assertNull(loginUser);
+    }
+
+    @Test
+    public void testLoginUser_nullPassword_expectNull() {
+        UserDTO loginUser = userService.login(USER_ID, USERNAME, null);
+        assertNull(loginUser);
+    }
+
     private static User getUser() {
         return User.builder()
-                .id(ID)
+                .id(USER_ID)
                 .username(USERNAME)
                 .password(PASSWORD)
                 .build();
@@ -68,14 +106,14 @@ class UserServiceImplTest {
 
     private static RegisterUserResponse getRegisterUserResponse() {
         return RegisterUserResponse.builder()
-                .id(ID)
+                .id(USER_ID)
                 .username(USERNAME)
                 .build();
     }
 
     private static UserDTO getUserDTO() {
         return UserDTO.builder()
-                .id(ID)
+                .id(USER_ID)
                 .username(USERNAME)
                 .build();
     }
