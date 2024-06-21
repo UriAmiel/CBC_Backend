@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class RideMapperTest {
 
     private static final int COMMUNITY_ID = 1;
-    private static final int DRIVER_ID = 2;
+    private static final Long DRIVER_ID = 2L;
     private static final String DESTINATION = "destination";
     private static final String SOURCE = "source";
     private static final int RIDE_ID = 10;
@@ -36,8 +36,8 @@ class RideMapperTest {
 
         Ride ride = rideMapper.toRide(addRideRequest);
 
-        assertEquals(COMMUNITY_ID, ride.getCommunityId());
-        assertEquals(DRIVER_ID, ride.getDriverId());
+        assertEquals(COMMUNITY_ID, ride.getCommunity().getId());
+        assertEquals(DRIVER_ID, ride.getDriver().getId());
         assertEquals(DESTINATION, ride.getDestination());
         assertEquals(SOURCE, ride.getSource());
     }

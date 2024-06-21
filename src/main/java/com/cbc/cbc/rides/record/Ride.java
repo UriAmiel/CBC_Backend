@@ -1,5 +1,7 @@
 package com.cbc.cbc.rides.record;
 
+import com.cbc.cbc.communities.record.Community;
+import com.cbc.cbc.users.record.User;
 import lombok.*;
 
 import javax.persistence.*;
@@ -18,6 +20,12 @@ public class Ride {
     private int id;
     private String source;
     private String destination;
-    private int driverId;
-    private int communityId;
+
+    @ManyToOne
+    @JoinColumn(name = "driver_id", nullable = false)
+    private User driver;
+
+    @ManyToOne
+    @JoinColumn(name = "community_id", nullable = false)
+    private Community community;
 }

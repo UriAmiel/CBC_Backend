@@ -11,6 +11,6 @@ public class AddRideRequest {
 
     private String source;
     private String destination;
-    private int driverId;
+    private Long driverId;
     private int communityId;
 }
