@@ -1,6 +1,7 @@
 package com.cbc.cbc.users.record;
 
 import com.cbc.cbc.communities.record.Community;
+import com.cbc.cbc.rides.record.Ride;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -36,7 +37,15 @@ public class User {
     @Builder.Default
     private Set<Community> communities = new HashSet<>();
 
+    @OneToMany(mappedBy = "driver")
+    @Builder.Default
+    private Set<Ride> rides = new HashSet<>();
+
     public void addCommunity(Community community) {
         communities.add(community);
+    }
+
+    public void addRide(Ride ride) {
+        rides.add(ride);
     }
 }
