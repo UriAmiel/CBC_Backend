@@ -5,6 +5,9 @@ import com.cbc.cbc.communities.model.dto.CommunityDTO;
 import com.cbc.cbc.communities.model.mapper.CommunityMapper;
 import com.cbc.cbc.communities.record.Community;
 import com.cbc.cbc.communities.repository.CommunityRepository;
+import com.cbc.cbc.rides.model.dto.RideDTO;
+import com.cbc.cbc.rides.model.dto.mapper.RideMapper;
+import com.cbc.cbc.rides.record.Ride;
 import com.cbc.cbc.users.record.User;
 import com.cbc.cbc.users.repository.UserRepository;
 import lombok.AllArgsConstructor;
@@ -12,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 @AllArgsConstructor
@@ -20,6 +24,7 @@ public class CommunityServiceImpl implements CommunityService {
     private CommunityRepository communityRepository;
     private UserRepository userRepository;
     private CommunityMapper communityMapper;
+    private RideMapper rideMapper;
 
     @Transactional
     @Override
@@ -38,6 +43,16 @@ public class CommunityServiceImpl implements CommunityService {
         return communityRepository.findAll()
                 .stream()
                 .map(community -> communityMapper.toCommunityDTO(community))
+                .toList();
+    }
+
+    @Override
+    public List<RideDTO> getRidesOfCommunity(int communityId) {
+        Community community = communityRepository.findById(communityId)
+                .orElseThrow(() -> new IllegalArgumentException("Cannot find community"));
+        Set<Ride> rides = community.getRides();
+        return rides.stream()
+                .map(ride -> rideMapper.toRideDto(ride))
                 .toList();
     }
 

@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -24,6 +25,15 @@ public class CommunityController {
         return communityDTO != null ?
                 ResponseEntity.status(HttpStatus.OK).body(communityDTO) :
                 ResponseEntity.status(HttpStatus.CONFLICT).body("Cannot create community");
+    }
+
+    @GetMapping("/get/{communityId}")
+    public ResponseEntity<List<?>> getCommunityRides(@PathVariable int communityId) {
+        try {
+            return ResponseEntity.ok(communityService.getRidesOfCommunity(communityId));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(Collections.singletonList("Cannot find community rides"));
+        }
     }
 
     @GetMapping("/getAll")
